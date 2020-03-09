@@ -88,6 +88,7 @@ public class PessoaServico implements Serializable {
 	 * Buscar uma Pessoa pelo ID
 	 */
 //	@Override
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Optional<Pessoa> encontrar(Long id) {
 		return dao.encontrar(id);
 	}
