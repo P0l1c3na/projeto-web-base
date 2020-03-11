@@ -79,15 +79,13 @@ public class Pessoa implements Serializable{
 	/**
 	 * Mapeamento de Enderecos Unidirecional
 	 */
-	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CO_SEQ_PESSOA",referencedColumnName = "CO_SEQ_PESSOA")
+	@JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "CO_SEQ_PESSOA")
 	private Set<Endereco> enderecos;
 
 	/**
 	 * Mapeamento de Perfis Unidirecional
 	 */
-	@JsonIgnore
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinTable(
 			name = "TB_PESSOA_PERFIL",

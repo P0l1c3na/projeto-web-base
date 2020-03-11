@@ -4,19 +4,18 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tb_pessoa_perfil")
+@Table(name = "TB_PESSOA_PERFIL")
 public class PessoaPerfil implements Serializable {
 
-
     @Id
-    @Column(name = "co_seq_pessoal_perfil")
+    @Column(name = "CO_SEQ_PESSOAL_PERFIL")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "co_seq_perfil", referencedColumnName = "co_seq_perfil", nullable = false)
+    @JoinColumn(name = "CO_SEQ_PERFIL", referencedColumnName = "CO_SEQ_PERFIL", nullable = false)
     private Perfil perfil;
     @ManyToOne
-    @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
+    @JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "CO_SEQ_PESSOA", nullable = false)
     private Pessoa pessoa;
 
     public PessoaPerfil() {
