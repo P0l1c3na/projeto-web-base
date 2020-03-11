@@ -4,14 +4,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tb_pessoa_perfil")
+@Table(name = "TB_PESSOA_PERFIL")
 public class PessoaPerfil implements Serializable {
 
-
     @Id
-    @Column(name = "co_seq_pessoal_perfil")
+    @Column(name = "CO_SEQ_PESSOAL_PERFIL")
     private Long id;
 
+<<<<<<< refs/remotes/origin/master
     @Column(name = "co_seq_perfil",insertable = false,updatable = false)
     private Long idPerfil;
     @Column(name = "co_seq_pessoa",insertable = false,updatable = false)
@@ -22,6 +22,13 @@ public class PessoaPerfil implements Serializable {
     private Perfil perfil;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
+=======
+    @ManyToOne
+    @JoinColumn(name = "CO_SEQ_PERFIL", referencedColumnName = "CO_SEQ_PERFIL", nullable = false)
+    private Perfil perfil;
+    @ManyToOne
+    @JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "CO_SEQ_PESSOA", nullable = false)
+>>>>>>> Alterações nos tipos de transação da classe de serviço da pessoa.
     private Pessoa pessoa;
 
     public PessoaPerfil() {
