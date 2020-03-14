@@ -72,10 +72,20 @@ public class Pessoa implements Serializable{
 	/**
 	 * Mapeamento de Enderecos Unidirecional
 	 */
+<<<<<<< refs/remotes/origin/master
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "CO_SEQ_PESSOA",referencedColumnName = "CO_SEQ_PESSOA")
 	private Set<Endereco> enderecos = new HashSet<>();
+=======
+	@OneToMany(
+			orphanRemoval = true,
+			cascade = CascadeType.ALL,
+			fetch = FetchType.LAZY,
+			targetEntity = Endereco.class
+	)
+	private Set<Endereco> enderecos;
+>>>>>>> Adicionando as classes de serviço e resources
 
 	/**
 	 * Mapeamento de Perfis Unidirecional
