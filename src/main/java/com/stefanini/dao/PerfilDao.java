@@ -15,4 +15,5 @@ public class PerfilDao extends GenericDao<Perfil, Long> {
 		super(Perfil.class);
 	}
 
+
 }

@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -72,4 +73,8 @@ public class PessoaServico implements Serializable {
 		return dao.encontrar(id);
 	}
 
+
+	public List<Pessoa> getPessoasPorUf(String uf){
+		return dao.getPessoasPorUf(uf).collect(Collectors.toList());
+	}
 }

@@ -7,6 +7,7 @@ import com.stefanini.util.IGenericService;
 import javax.ejb.*;
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,35 +19,30 @@ import java.util.Optional;
  */
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class EnderecoServico implements IGenericService<Endereco, Long> {
+public class EnderecoServico implements Serializable {
 	
 	@Inject
 	private EnderecoDao dao;
 
-	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Endereco salvar(@Valid Endereco entity) {
 		return dao.salvar(entity);
 	}
 
-	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Endereco atualizar(@Valid Endereco entity) {
 		return dao.atualizar(entity);
 	}
 
-	@Override
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void remover(Long id) {
 	dao.remover(id);
 	}
 
-	@Override
 	public Optional<List<Endereco>> getList() {
 		return Optional.empty();
 	}
 
-	@Override
 	public Optional<Endereco> encontrar(Long id) {
 		return dao.encontrar(id);
 	}
