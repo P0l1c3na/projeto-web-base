@@ -74,7 +74,8 @@ public class Pessoa implements Serializable{
 	@OneToMany(
 			orphanRemoval = true,
 			cascade = CascadeType.ALL,
-			mappedBy = "pessoa"
+			fetch = FetchType.LAZY,
+			targetEntity = Endereco.class
 	)
 	private Set<Endereco> enderecos;
 
