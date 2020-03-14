@@ -38,8 +38,9 @@ public class PessoaServico implements Serializable {
 	/**
 	 * Salvar os dados de uma Pessoa
 	 */
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Pessoa salvar(@Valid Pessoa pessoa) {
+		System.out.println(pessoa);
 		return dao.salvar(pessoa);
 	}
 	/**
@@ -79,6 +80,7 @@ public class PessoaServico implements Serializable {
 	/**
 	 * Buscar uma lista de Pessoa
 	 */
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Optional<List<Pessoa>> getList() {
 		return dao.getList();
 	}
