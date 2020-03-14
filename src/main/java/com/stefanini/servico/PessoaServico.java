@@ -10,7 +10,11 @@ import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
+<<<<<<< refs/remotes/origin/master
 import java.util.logging.Logger;
+=======
+import java.util.stream.Collectors;
+>>>>>>> Adicionando busca de pessoas por UF
 
 /**
  * 
@@ -92,4 +96,8 @@ public class PessoaServico implements Serializable {
 		return dao.encontrar(id);
 	}
 
+
+	public List<Pessoa> getPessoasPorUf(String uf){
+		return dao.getPessoasPorUf(uf).collect(Collectors.toList());
+	}
 }

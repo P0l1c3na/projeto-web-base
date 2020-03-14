@@ -22,6 +22,7 @@ public class PerfilDao extends GenericDao<Perfil, Long> {
 	}
 
 <<<<<<< refs/remotes/origin/master
+<<<<<<< refs/remotes/origin/master
 	/**
 	 * Efetuando busca de Pessoa por email
 	 * @param nome
@@ -36,4 +37,7 @@ public class PerfilDao extends GenericDao<Perfil, Long> {
 
 =======
 >>>>>>> Adicionando as classes de serviço e resources
+=======
+
+>>>>>>> Adicionando busca de pessoas por UF
 }
