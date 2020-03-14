@@ -15,7 +15,7 @@ import java.util.Optional;
 @Path("pessoas")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class TesteResource {
+public class PessoasResource {
 
     @Inject
     private PessoaServico pessoaServico;

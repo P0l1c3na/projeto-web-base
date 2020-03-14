@@ -30,15 +30,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
  */
 @Entity
 @Table(name = "TB_PESSOA")
-@NamedQueries(value = {
-		@NamedQuery(name = "Pessoa.findByNome",
-				query = "select p from Pessoa p where p.nome=:nome"),
-		@NamedQuery(name = "Pessoa.findPerfilsAndEnderecosByNome",
-				query = "select  p from Pessoa p  JOIN FETCH p.perfils JOIN FETCH p.enderecos  where p.nome=:nome")
-})
 public class Pessoa implements Serializable{
-
-	
 	/**
 	 * Serializacao da Classe
 	 */
@@ -79,14 +71,18 @@ public class Pessoa implements Serializable{
 	/**
 	 * Mapeamento de Enderecos Unidirecional
 	 */
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CO_SEQ_PESSOA", referencedColumnName = "CO_SEQ_PESSOA")
+	@OneToMany(
+			orphanRemoval = true,
+			cascade = CascadeType.ALL,
+			mappedBy = "pessoa"
+	)
 	private Set<Endereco> enderecos;
 
 	/**
 	 * Mapeamento de Perfis Unidirecional
 	 */
-	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@ManyToMany(cascade = CascadeType.PERSIST,
+			fetch = FetchType.LAZY)
 	@JoinTable(
 			name = "TB_PESSOA_PERFIL",
 			joinColumns = {@JoinColumn(name = "CO_SEQ_PESSOA")},
@@ -115,12 +111,14 @@ public class Pessoa implements Serializable{
 	 * @param dataNascimento
 	 * @param situacao
 	 */
-	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao) {
+	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao, Set<Perfil> perfils, Set<Endereco> enderecos) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
 		this.situacao = situacao;
+		this.perfils = perfils;
+		this.enderecos = enderecos;
 	}
 
 

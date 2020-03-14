@@ -42,13 +42,10 @@ public class Endereco implements Serializable {
      * Unidirecional
      * Somente Pessoa acessa endereco
      */
-    @Column(name = "CO_SEQ_PESSOA")
-    private Long idPessoa;
-
-//    @ManyToOne
-//    @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
-//    private Pessoa pessoa;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CO_SEQ_PESSOA",
+            referencedColumnName = "co_seq_pessoa")
+    private Pessoa pessoa;
 
     public Endereco() {
     }
@@ -109,12 +106,12 @@ public class Endereco implements Serializable {
         this.logradouro = logradouro;
     }
 
-    public Long getIdPessoa() {
-        return idPessoa;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setIdPessoa(Long idPessoa) {
-        this.idPessoa = idPessoa;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     @Override
@@ -127,7 +124,7 @@ public class Endereco implements Serializable {
                 ", bairro='" + bairro + '\'' +
                 ", complemento='" + complemento + '\'' +
                 ", logradouro='" + logradouro + '\'' +
-                ", idPessoa=" + idPessoa +
+                ", idPessoa=" + pessoa +
                 '}';
     }
 }
