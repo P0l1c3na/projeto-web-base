@@ -4,7 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity
 @Table(name = "TB_PERFIL")
@@ -14,39 +13,38 @@ public class Perfil implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CO_SEQ_PERFIL")
+    @Column(name = "co_seq_perfil")
     private Long id;
     /**
      *
      */
     @NotNull
-    @Column(name = "NO_PERFIL")
+    @Column(name = "no_perfil")
     private String nome;
     /**
      *
      */
     @NotNull
-    @Column(name = "DS_PERFIL")
+    @Column(name = "ds_perfil")
     private String descricao;
     /**
      *
      */
-    @Column(name = "DT_HORA_INCLUSAO")
+    @Column(name = "dt_hora_inclusao")
     @NotNull
     private LocalDateTime dataHoraInclusao;
     /**
      *
      */
-    @Column(name = "DT_HORA_ALTERACAO")
+    @Column(name = "dt_hora_alteracao")
     private LocalDateTime dataHoraAlteracao;
 
-//    @ManyToMany(
-//            targetEntity = Pessoa.class,
-//            mappedBy = "perfils",
-//            cascade = CascadeType.PERSIST,
-//            fetch = FetchType.LAZY
-//    )
-//    private Set<Pessoa> pessoa;
+//    /**
+//     * Mapeamento de Pessoa
+//     */
+//    @ManyToMany(mappedBy = "perfils")
+//    private Set<Pessoa> pessoas;
+
 
     public Perfil() {
     }
@@ -60,9 +58,16 @@ public class Perfil implements Serializable {
         this.descricao = descricao;
         this.dataHoraInclusao = dataHoraInclusao;
         this.dataHoraAlteracao = dataHoraAlteracao;
-        //this.pessoa = pessoas;
-
+//        this.pessoas = pessoas;
     }
+
+//    public Set<Pessoa> getPessoas() {
+//        return pessoas;
+//    }
+//
+//    public void setPessoas(Set<Pessoa> pessoas) {
+//        this.pessoas = pessoas;
+//    }
 
     public Long getId() {
         return id;
@@ -104,22 +109,15 @@ public class Perfil implements Serializable {
         this.dataHoraAlteracao = dataHoraAlteracao;
     }
 
-//    public Set<Pessoa> getPessoa() {
-//        return pessoa;
-//    }
-//
-//    public void setPessoa(Set<Pessoa> pessoa) {
-//        this.pessoa = pessoa;
-//    }
-
     @Override
     public String toString() {
         return "Perfil{" +
-                "  id=" + id +
+                "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", dataHoraInclusao=" + dataHoraInclusao +
                 ", dataHoraAlteracao=" + dataHoraAlteracao +
+//                ", pessoas=" + pessoas +
                 '}';
     }
 }

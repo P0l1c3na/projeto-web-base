@@ -1,13 +1,9 @@
 package com.stefanini.servico;
 
 import com.stefanini.dao.PerfilDao;
-<<<<<<< refs/remotes/origin/master
 import com.stefanini.dao.PerfilDao;
 import com.stefanini.exception.NegocioException;
 import com.stefanini.model.Perfil;
-=======
-import com.stefanini.dao.PessoaDao;
->>>>>>> Adicionando as classes de serviço e resources
 import com.stefanini.model.Perfil;
 import com.stefanini.model.Pessoa;
 
@@ -27,20 +23,14 @@ import java.util.Optional;
  */
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-<<<<<<< refs/remotes/origin/master
 @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 public class PerfilServico implements Serializable {
 
 
-=======
-public class PerfilServico implements Serializable {
-
->>>>>>> Adicionando as classes de serviço e resources
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-<<<<<<< refs/remotes/origin/master
 
 	@Inject
 	private PerfilDao dao;
@@ -67,21 +57,6 @@ public class PerfilServico implements Serializable {
 
 	/**
 	 * Atualizar o dados de uma perfil
-=======
-	@Inject
-	private PerfilDao dao;
-	/**
-	 * Salvar os dados de uma Pessoa
-	 */
-	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Perfil salvar(@Valid Perfil perfil) {
-		System.out.println(perfil);
-		return dao.salvar(perfil);
-	}
-
-	/**
-	 * Atualizar o dados de uma pessoa
->>>>>>> Adicionando as classes de serviço e resources
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Perfil atualizar(@Valid Perfil entity) {
@@ -89,7 +64,6 @@ public class PerfilServico implements Serializable {
 	}
 
 	/**
-<<<<<<< refs/remotes/origin/master
 	 * Remover uma perfil pelo id
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
@@ -104,32 +78,14 @@ public class PerfilServico implements Serializable {
 	/**
 	 * Buscar uma lista de Perfil
 	 */
-=======
-	 * Remover uma pessoa pelo id
-	 */
-	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
-	public void remover(@Valid Long id) {
-		dao.remover(id);
-	}
-
-	/**
-	 * Buscar uma lista de Pessoa
-	 */
-	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
->>>>>>> Adicionando as classes de serviço e resources
 	public Optional<List<Perfil>> getList() {
 		return dao.getList();
 	}
 
 	/**
-<<<<<<< refs/remotes/origin/master
 	 * Buscar uma Perfil pelo ID
 	 */
 //	@Override
-=======
-	 * Buscar uma Pessoa pelo ID
-	 */
->>>>>>> Adicionando as classes de serviço e resources
 	public Optional<Perfil> encontrar(Long id) {
 		return dao.encontrar(id);
 	}

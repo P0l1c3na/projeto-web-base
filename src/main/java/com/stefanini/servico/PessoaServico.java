@@ -10,11 +10,7 @@ import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
-<<<<<<< refs/remotes/origin/master
 import java.util.logging.Logger;
-=======
-import java.util.stream.Collectors;
->>>>>>> Adicionando busca de pessoas por UF
 
 /**
  * 
@@ -25,6 +21,7 @@ import java.util.stream.Collectors;
  */
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
+@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 public class PessoaServico implements Serializable {
 
 
@@ -44,7 +41,6 @@ public class PessoaServico implements Serializable {
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Pessoa salvar(@Valid Pessoa pessoa) {
-		System.out.println(pessoa);
 		return dao.salvar(pessoa);
 	}
 	/**
@@ -84,7 +80,6 @@ public class PessoaServico implements Serializable {
 	/**
 	 * Buscar uma lista de Pessoa
 	 */
-	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Optional<List<Pessoa>> getList() {
 		return dao.getList();
 	}
@@ -92,12 +87,9 @@ public class PessoaServico implements Serializable {
 	/**
 	 * Buscar uma Pessoa pelo ID
 	 */
+//	@Override
 	public Optional<Pessoa> encontrar(Long id) {
 		return dao.encontrar(id);
 	}
 
-
-	public List<Pessoa> getPessoasPorUf(String uf){
-		return dao.getPessoasPorUf(uf).collect(Collectors.toList());
-	}
 }

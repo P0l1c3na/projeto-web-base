@@ -32,6 +32,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @Entity
 @Table(name = "TB_PESSOA")
 public class Pessoa implements Serializable{
+
+	
 	/**
 	 * Serializacao da Classe
 	 */
@@ -72,19 +74,10 @@ public class Pessoa implements Serializable{
 	/**
 	 * Mapeamento de Enderecos Unidirecional
 	 */
-<<<<<<< refs/remotes/origin/master
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "CO_SEQ_PESSOA",referencedColumnName = "CO_SEQ_PESSOA")
 	private Set<Endereco> enderecos = new HashSet<>();
-=======
-	@OneToMany(
-			orphanRemoval = true,
-			cascade = CascadeType.ALL,
-			fetch = FetchType.LAZY
-	)
-	private Set<Endereco> enderecos;
->>>>>>> Adicionando as classes de serviço e resources
 
 	/**
 	 * Mapeamento de Perfis Unidirecional
@@ -118,14 +111,12 @@ public class Pessoa implements Serializable{
 	 * @param dataNascimento
 	 * @param situacao
 	 */
-	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao, Set<Perfil> perfils, Set<Endereco> enderecos) {
+	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
 		this.situacao = situacao;
-		this.perfils = perfils;
-		this.enderecos = enderecos;
 	}
 
 

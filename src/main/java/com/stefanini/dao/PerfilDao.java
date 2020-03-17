@@ -4,12 +4,9 @@ import com.stefanini.dao.abstracao.GenericDao;
 import com.stefanini.model.Perfil;
 import com.stefanini.model.Pessoa;
 
-<<<<<<< refs/remotes/origin/master
 import javax.persistence.TypedQuery;
 import java.util.Optional;
 
-=======
->>>>>>> Adicionando as classes de serviço e resources
 /**
  * O Unico objetivo da Dao 
  * @author joaopedromilhome
@@ -21,8 +18,6 @@ public class PerfilDao extends GenericDao<Perfil, Long> {
 		super(Perfil.class);
 	}
 
-<<<<<<< refs/remotes/origin/master
-<<<<<<< refs/remotes/origin/master
 	/**
 	 * Efetuando busca de Pessoa por email
 	 * @param nome
@@ -35,9 +30,4 @@ public class PerfilDao extends GenericDao<Perfil, Long> {
 		return q2.getResultStream().findFirst();
 	}
 
-=======
->>>>>>> Adicionando as classes de serviço e resources
-=======
-
->>>>>>> Adicionando busca de pessoas por UF
 }
