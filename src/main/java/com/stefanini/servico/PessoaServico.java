@@ -21,7 +21,6 @@ import java.util.logging.Logger;
  */
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 public class PessoaServico implements Serializable {
 
 
@@ -41,6 +40,7 @@ public class PessoaServico implements Serializable {
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Pessoa salvar(@Valid Pessoa pessoa) {
+		System.out.println(pessoa);
 		return dao.salvar(pessoa);
 	}
 	/**
@@ -87,9 +87,12 @@ public class PessoaServico implements Serializable {
 	/**
 	 * Buscar uma Pessoa pelo ID
 	 */
-//	@Override
 	public Optional<Pessoa> encontrar(Long id) {
 		return dao.encontrar(id);
 	}
 
+
+	public List<Pessoa> getPessoasPorUf(String uf){
+		return dao.getPessoasPorUf(uf).collect(Collectors.toList());
+	}
 }

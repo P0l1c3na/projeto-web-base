@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tb_endereco")
+@Table(name = "TB_ENDERECO")
 public class Endereco implements Serializable {
 
 
@@ -38,17 +38,6 @@ public class Endereco implements Serializable {
 
     @Column(name = "DS_LOGRADOURO")
     private String logradouro;
-    /**
-     * Unidirecional
-     * Somente Pessoa acessa endereco
-     */
-    @Column(name = "CO_SEQ_PESSOA")
-    private Long idPessoa;
-
-//    @ManyToOne
-//    @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
-//    private Pessoa pessoa;
-
 
     public Endereco() {
     }
@@ -109,14 +98,6 @@ public class Endereco implements Serializable {
         this.logradouro = logradouro;
     }
 
-    public Long getIdPessoa() {
-        return idPessoa;
-    }
-
-    public void setIdPessoa(Long idPessoa) {
-        this.idPessoa = idPessoa;
-    }
-
     @Override
     public String toString() {
         return "Endereco{" +
@@ -127,7 +108,7 @@ public class Endereco implements Serializable {
                 ", bairro='" + bairro + '\'' +
                 ", complemento='" + complemento + '\'' +
                 ", logradouro='" + logradouro + '\'' +
-                ", idPessoa=" + idPessoa +
+//                ", idPessoa=" + pessoa +
                 '}';
     }
 }

@@ -32,8 +32,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 @Entity
 @Table(name = "TB_PESSOA")
 public class Pessoa implements Serializable{
-
-	
 	/**
 	 * Serializacao da Classe
 	 */
@@ -111,12 +109,14 @@ public class Pessoa implements Serializable{
 	 * @param dataNascimento
 	 * @param situacao
 	 */
-	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao) {
+	public Pessoa(@NotNull String nome, @NotNull String email, @NotNull LocalDate dataNascimento,@NotNull Boolean situacao, Set<Perfil> perfils, Set<Endereco> enderecos) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
 		this.situacao = situacao;
+		this.perfils = perfils;
+		this.enderecos = enderecos;
 	}
 
 
